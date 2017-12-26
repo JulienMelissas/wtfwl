@@ -1,28 +1,66 @@
-.App {
-  text-align: center;
+
+/* Application Styles */
+body {
+  color: #000;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.1;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.super-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.wrap {
+  max-width: 500px;
+  margin: 0 auto 250px;
+  padding: 30px;
+  font-size: 2rem;
+  font-weight: 800;
+  text-transform: uppercase;
 }
 
-.App-title {
-  font-size: 1.5em;
+.info {
+  position: absolute;
+  bottom: 10px;
+  right: 30px;
+  color: #777777;
+  font-size: 0.75rem;
+  text-align: right;
+  line-height: 1.5;
 }
 
-.App-intro {
-  font-size: large;
+h1 {
+  margin:  0 0 30px;
+  font-size: 3rem;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+a {
+  cursor: pointer;
+  color: #000;
+  text-decoration: none;
+}
+
+p {
+  margin-bottom: 30px;
+}
+
+/* Styles for Larger Screens */
+@media(min-width: 768px) {
+  .wrap {
+    max-width: 900px;
+    font-size: 2.75rem;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
 }
