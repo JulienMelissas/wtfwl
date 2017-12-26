@@ -1,25 +1,29 @@
 // React
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+
+// React Router
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from 'react-router-dom'
 
 // Styles
-import 'sanitize.css';
-import './App.css';
+import 'sanitize.css'
+import './App.css'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="wrap">
-          <header className="App-header">
-            <h1 className="App-title">What The Fuck is the Weather Like?</h1>
-          </header>
-          <div className="form">
-          Something here.
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
+// Our Views
+import Home from './views/home';
+import FourOhFour from './views/404';
 
-export default App;
+const App = () => (
+  <Router>
+    <div className="wrap">
+      <Switch>
+        <Route exact path="/" component={Home}/>
+        <Route component={FourOhFour}/>
+      </Switch>
+    </div>
+  </Router>
+)
+export default App
