@@ -8,7 +8,7 @@ import WeatherProvider from '../providers/WeatherProvider'
 
 // Temp Component
 const Temp = ({...props}) => {
-  if(props.temp)
+  if (props.temp)
     return `${Math.round(props.temp)}°`
   return ''
 }
@@ -18,13 +18,18 @@ const CurrentTemplate = ({...props}) => {
   let temp = props.data.main ? props.data.main.temp : false
   let location = props.data.name ? props.data.name : false
 
-  return (
-    <div className="view--current">
-      <h1>It's fucking <Temp temp={temp}/> in {location}</h1>
-      <p><Link to={`${props.match.url}/forecast`}>Show me the future</Link></p>
-      <p><Link to="/">I moved</Link></p>
-    </div>
-  )
+  // As long as we have our data
+  if (temp && location)
+    return (
+      <div className="view--current">
+        <h1>It's fucking <Temp temp={temp}/> in {location}</h1>
+        <p><Link to={`${props.match.url}/forecast`}>Show me the future</Link></p>
+        <p><Link to="/">I moved</Link></p>
+      </div>
+    )
+
+  // Always return something
+  return ''
 }
 
 const Current = ({match}) => (
