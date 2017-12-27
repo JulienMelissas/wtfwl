@@ -5156,6 +5156,10 @@ react-error-overlay@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-3.0.0.tgz#c2bc8f4d91f1375b3dad6d75265d51cd5eeaf655"
 
+react-geolocation@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-geolocation/-/react-geolocation-1.0.3.tgz#6a962d6b436561f34e5462121e69d68c9edf3d36"
+
 react-places-autocomplete@^5.4.3:
   version "5.4.3"
   resolved "https://registry.yarnpkg.com/react-places-autocomplete/-/react-places-autocomplete-5.4.3.tgz#321166247a9279b93ff21ee59112836058dda0ba"
