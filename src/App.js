@@ -17,14 +17,19 @@ import Home from './views/home'
 import FourOhFour from './views/404'
 
 // Location View/Controller
-import Location from './Location'
+// import Weather from './Weather'
+
+import Forecast from './views/forecast'
+import Current from './views/current'
+
 
 const App = () => (
   <Router>
     <div className="wrap">
       <Switch>
         <Route exact path="/" component={Home}/>
-        <Route path="/:location" component={Location}/>
+        <Route exact path="/:latitude/:longitude/forecast" component={Forecast}/>
+        <Route path="/:latitude/:longitude/" component={Current}/>
         <Route component={FourOhFour}/>
       </Switch>
     </div>
