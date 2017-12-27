@@ -6,9 +6,6 @@ import {
 
 import WeatherProvider from '../providers/WeatherProvider'
 
-// Set the WEATHER API KEY
-const WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY
-
 // Temp Component
 const Temp = ({...props}) => {
   if(props.temp)
@@ -32,7 +29,6 @@ const CurrentTemplate = ({...props}) => {
 
 const Current = ({match}) => (
   <WeatherProvider
-    apikey={WEATHER_API_KEY}
     latitude={match.params.latitude}
     longitude={match.params.longitude}
     render={({

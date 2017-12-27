@@ -1,5 +1,8 @@
 import React from 'react'
 
+// Set the WEATHER API KEY
+const WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY
+
 class WeatherProvider extends React.Component {
   state = {
     fetchingWeather: true,
@@ -18,8 +21,12 @@ class WeatherProvider extends React.Component {
   }
 
   componentWillMount () {
-    if (this.props.apikey && this.props.latitude && this.props.longitude) {
-      this.getWeather(this.props.apikey, this.props.latitude, this.props.longitude)
+    if (WEATHER_API_KEY) {
+      if (this.props.latitude && this.props.longitude) {
+        this.getWeather(WEATHER_API_KEY, this.props.latitude, this.props.longitude)
+      }
+    } else {
+      console.warn('You need to have a valid API KEY using the env variable REACT_APP_WEATHER_API_KEY')
     }
   }
 
