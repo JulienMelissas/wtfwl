@@ -4,7 +4,7 @@ import {
   Link,
 } from 'react-router-dom'
 
-import WeatherProvider from '../providers/WeatherProvider'
+import Weather from '../providers/WeatherProvider'
 
 // Temp Component
 const Temp = ({...props}) => {
@@ -23,7 +23,7 @@ const CurrentTemplate = ({...props}) => {
     return (
       <div className="view--current">
         <h1>It's fucking <Temp temp={temp}/> in {location}</h1>
-        <p><Link to={`${props.match.url}/forecast`}>Show me the future</Link></p>
+        <p><Link to={`/${props.match.params.latitude}/${props.match.params.longitude}/forecast`}>Show me the future</Link></p>
         <p><Link to="/">I moved</Link></p>
       </div>
     )
@@ -33,7 +33,7 @@ const CurrentTemplate = ({...props}) => {
 }
 
 const Current = ({match}) => (
-  <WeatherProvider
+  <Weather
     latitude={match.params.latitude}
     longitude={match.params.longitude}
     render={({
