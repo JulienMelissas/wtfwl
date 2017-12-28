@@ -1,12 +1,10 @@
-// React
 import React from 'react'
-
-// React Router
 import {
   BrowserRouter as Router,
   Route,
   Switch,
 } from 'react-router-dom'
+import ScrollToTop from './ScrollToTop'
 
 // Styles
 import 'sanitize.css'
@@ -19,13 +17,15 @@ import FourOhFour from './views/404'
 
 const App = () => (
   <Router>
-    <div className="wrap">
-      <Switch>
-        <Route exact path="/" component={Home}/>
-        <Route path="/:latitude/:longitude/" component={Weather}/>
-        <Route component={FourOhFour}/>
-      </Switch>
-    </div>
+    <ScrollToTop>
+      <div className="wrap">
+        <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route path="/:latitude/:longitude/" component={Weather}/>
+          <Route component={FourOhFour}/>
+        </Switch>
+      </div>
+    </ScrollToTop>
   </Router>
 )
 export default App
