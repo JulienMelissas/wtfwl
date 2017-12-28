@@ -13,23 +13,16 @@ import 'sanitize.css'
 import './App.css'
 
 // Our Views
-import Home from './views/home'
+import Home from './Home'
+import Weather from './Weather'
 import FourOhFour from './views/404'
-
-// Location View/Controller
-// import Weather from './Weather'
-
-import Forecast from './views/forecast'
-import Current from './views/current'
-
 
 const App = () => (
   <Router>
     <div className="wrap">
       <Switch>
         <Route exact path="/" component={Home}/>
-        <Route exact path="/:latitude/:longitude/forecast" component={Forecast}/>
-        <Route path="/:latitude/:longitude/" component={Current}/>
+        <Route path="/:latitude/:longitude/" component={Weather}/>
         <Route component={FourOhFour}/>
       </Switch>
     </div>

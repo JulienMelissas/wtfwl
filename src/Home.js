@@ -20,7 +20,7 @@ class Finder extends React.Component {
                    getCurrentPosition
                  }) =>
           this.state.latitude && this.state.longitude
-            ? <Redirect to={`/${this.state.latitude}/${this.state.longitude}`}/>
+            ? <Redirect to={`/${this.state.latitude}/${this.state.longitude}/`}/>
             : fetchingPosition
             ? <p>Being creepy...</p>
             : <p>
