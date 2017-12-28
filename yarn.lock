@@ -5164,6 +5164,12 @@ react-error-overlay@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-3.0.0.tgz#c2bc8f4d91f1375b3dad6d75265d51cd5eeaf655"
 
+react-ga@^2.3.5:
+  version "2.3.5"
+  resolved "https://registry.yarnpkg.com/react-ga/-/react-ga-2.3.5.tgz#7c3d0c530b2bbe64ceb1faa79be340685aa84a9a"
+  dependencies:
+    object-assign "^4.1.1"
+
 react-geolocation@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/react-geolocation/-/react-geolocation-1.0.3.tgz#6a962d6b436561f34e5462121e69d68c9edf3d36"

@@ -6,6 +6,8 @@ import {
 } from 'react-router-dom'
 import ScrollToTop from './ScrollToTop'
 
+import ReactGA from 'react-ga';
+
 // Styles
 import 'sanitize.css'
 import './App.css'
@@ -14,6 +16,10 @@ import './App.css'
 import Home from './Home'
 import Weather from './Weather'
 import FourOhFour from './views/404'
+
+// Google Analytics
+ReactGA.initialize('UA-21923051-1');
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 const App = () => (
   <Router>
