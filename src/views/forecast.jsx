@@ -6,9 +6,6 @@ import {
 
 import Weather from '../providers/WeatherProvider'
 
-import 'moment'
-import _ from 'lodash/core'
-
 const ForecastTemplate = ({...props}) => {
   // Set our variables
   // let city = props.data.city ? props.data.city.name : false

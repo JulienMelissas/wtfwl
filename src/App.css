@@ -49,6 +49,12 @@ p {
   margin-bottom: 30px;
 }
 
+small {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 50%;
+}
+
 /* Styles for Larger Screens */
 @media(min-width: 768px) {
   .wrap {

@@ -1,5 +1,7 @@
 import React from 'react'
 
+import fetchJsonp from 'fetch-jsonp';
+
 // Set the WEATHER API KEY
 const WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY
 
@@ -11,8 +13,7 @@ class WeatherProvider extends React.Component {
   }
 
   getWeather = function (apikey, endpoint, latitude, longitude) {
-    fetch(`https://api.openweathermap.org/data/2.5/${endpoint}?lat=${latitude}&lon=${longitude}&units=imperial&appid=${apikey}`, {cache: 'no-cache'})
-    // fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${apikey}`)
+    fetchJsonp(`https://api.darksky.net/forecast/${apikey}/${latitude},${longitude}/?exclude=minutely,hourly`)
       .then(response => response.json())
       .then(data => this.setState({weatherData: data}))
       .catch(error => this.setState({error: error}))
@@ -26,7 +27,7 @@ class WeatherProvider extends React.Component {
         this.getWeather(WEATHER_API_KEY, this.props.endpoint, this.props.latitude, this.props.longitude)
       }
     } else {
-      console.warn('You need to have a valid API KEY using the env variable REACT_APP_WEATHER_API_KEY')
+      console.warn('You need to have a valid Dark Sky API KEY added using the env variable REACT_APP_WEATHER_API_KEY')
     }
   }
 
@@ -44,10 +45,6 @@ class WeatherProvider extends React.Component {
       }) || null
     )
   }
-}
-
-WeatherProvider.defaultProps = {
-  endpoint: 'weather'
 }
 
 export default WeatherProvider

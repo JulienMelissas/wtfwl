@@ -15,16 +15,17 @@ const Temp = ({...props}) => {
 
 const CurrentTemplate = ({...props}) => {
   // Set our variables
-  let temp = props.data.main ? props.data.main.temp : false
-  let location = props.data.name ? props.data.name : false
+  let temp = props.data.currently ? props.data.currently.apparentTemperature : false
+  let summary = props.data.currently ? props.data.currently.summary : false
 
   // As long as we have our data
-  if (temp && location)
+  if (temp)
     return (
       <div className="view--current">
-        <h1>It's fucking <Temp temp={temp}/> in {location}</h1>
-        <p><Link to={`/${props.match.params.latitude}/${props.match.params.longitude}/forecast`}>Show me the future</Link></p>
-        <p><Link to="/">I moved</Link></p>
+        <h1>It's (temp) as fuck</h1>
+        <p><Temp temp={temp}/> and {summary}</p>
+        <small><Link to={`/${props.match.params.latitude}/${props.match.params.longitude}/forecast`}>Show me the future</Link></small>
+        <small><Link to="/">I moved</Link></small>
       </div>
     )
 
