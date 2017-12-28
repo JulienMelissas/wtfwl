@@ -49,9 +49,11 @@ p {
   margin-bottom: 30px;
 }
 
-small {
+small,
+.small {
   display: block;
   margin-bottom: 20px;
+  margin-top: 10px;
   font-size: 50%;
 }
 

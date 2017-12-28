@@ -3,13 +3,13 @@ import {
   Switch,
   Route,
   Redirect,
-  Link,
 } from 'react-router-dom'
 
 import WeatherProvider from './providers/WeatherProvider'
 
 import Forecast from './views/forecast'
 import Current from './views/current'
+import PlayByPlay from './views/play-by-play'
 
 const Weather = ({match}) => (
   <WeatherProvider
@@ -28,6 +28,7 @@ const Weather = ({match}) => (
           ?
           <Switch>
             <Route exact path="/:latitude/:longitude/forecast" component={() => <Forecast match={match} data={weatherData}/>}/>
+            <Route exact path="/:latitude/:longitude/play-by-play" component={() => <PlayByPlay match={match} data={weatherData}/>}/>
             <Route path="/:latitude/:longitude/" render={() => <Current match={match} data={weatherData}/>}/>
           </Switch>
           : ''

@@ -12,8 +12,12 @@ const Forecast = ({...props}) => {
     <div className="view--forecast">
       <h1>Here's your fucking forecast:</h1>
       <p>{summary}</p>
-      <p><Link to={`/${props.match.params.latitude}/${props.match.params.longitude}/`}>This is overrated</Link></p>
-      <p><Link to="/">I moved</Link></p>
+
+      <footer>
+        <p className="small"><Link to={`/${props.match.params.latitude}/${props.match.params.longitude}/play-by-play`}>I want a fucking play-by-play.</Link></p>
+        <p className="small"><Link to={`/${props.match.params.latitude}/${props.match.params.longitude}/`}>The Future Sucks.</Link></p>
+        <p className="small"><Link to="/">I moved.</Link></p>
+      </footer>
     </div>
   )
 }

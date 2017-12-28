@@ -3,28 +3,23 @@ import {
   Link,
 } from 'react-router-dom'
 
-// Temp Component
-const Temp = ({...props}) => {
-  return Math.round(props.temp)
-}
+import Temp from '../partials/temp'
 
 const Current = ({...props}) => {
   // Set our variables
-  let temp = props.data.currently.apparentTemperature
+  let temp = props.data.currently.temperature
   let summary = props.data.currently.summary
 
-  // As long as we have our data
-  if (temp)
-    return (
-      <div className="view--current">
-        <h1>It's <Temp temp={temp}/> fucking degrees and {summary}</h1>
-        <p><Link to={`/${props.match.params.latitude}/${props.match.params.longitude}/forecast`}>Show me the future</Link></p>
-        <p><Link to="/">I moved</Link></p>
-      </div>
-    )
+  return (
+    <div className="view--current">
+      <h1>It's <Temp temp={temp}/> fucking degrees and {summary}</h1>
 
-  // Always return something
-  return ''
+      <footer>
+        <p className="small"><Link to={`/${props.match.params.latitude}/${props.match.params.longitude}/forecast`}>Show me the future.</Link></p>
+        <p className="small"><Link to="/">I moved.</Link></p>
+      </footer>
+    </div>
+  )
 }
 
 export default Current
