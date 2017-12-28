@@ -32,8 +32,6 @@ class WeatherProvider extends React.Component {
   }
 
   render () {
-    console.log('Weather Data: ', this.state.weatherData)
-
     if (!this.props.render) {
       return null
     }
