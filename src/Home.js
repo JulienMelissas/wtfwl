@@ -9,33 +9,32 @@ import PlacesAutocomplete, {
 } from 'react-places-autocomplete'
 
 class Finder extends React.Component {
-  state = {latitude: '', longitude: ''}
+  state = {latitude: '', longitude: '', error: false}
 
   render () {
     return (
       <Geolocation
         lazy
+        onError={
+          () => {this.setState({error: true})}
+        }
         onSuccess={
           (position) => this.setState({latitude: position.coords.latitude, longitude: position.coords.longitude})
         }
         render={({
                    fetchingPosition,
-                   error,
                    getCurrentPosition
                  }) =>
           this.state.latitude && this.state.longitude
             ? <Redirect to={`/${this.state.latitude}/${this.state.longitude}/`}/>
             : fetchingPosition
             ? <p>Being creepy...</p>
-            : <p>
-              <a onClick={getCurrentPosition}>Find Me.</a>
-              {fetchingPosition}
-              {error &&
-              <p>
-                {error.message}
+            : this.state.error
+              ? <p>Not allowed to find you :(</p>
+              : <p>
+                <a onClick={getCurrentPosition}>Find Me.</a>
+                {fetchingPosition}
               </p>
-              }
-            </p>
         }
       />
     )
@@ -77,7 +76,7 @@ class AutocompleteForm extends React.Component {
       id: 'autocomplete-input',
     }
 
-    const AutocompleteItem = ({ formattedSuggestion }) => (
+    const AutocompleteItem = ({formattedSuggestion}) => (
       <div className="autocomplete-suggestion">
         <span className="autocomplete-suggestion--main">{formattedSuggestion.mainText}</span>
         <small className="autocomplete-suggestion--secondary muted">{formattedSuggestion.secondaryText}</small>
