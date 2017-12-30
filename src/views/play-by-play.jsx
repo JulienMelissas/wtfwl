@@ -8,7 +8,7 @@ import Moment from 'react-moment'
 import Temp from '../partials/temp'
 
 const Day = ({...props}) => {
-  let day = props.tomorrow ? 'Tomorrow' : <Moment date={props.data.time * 1000} format="dddd"/>
+  let day = <Moment date={props.data.time * 1000} format="dddd"/>
   let summary = props.data.summary
   let temperatureHigh = props.data.temperatureHigh
   let temperatureLow = props.data.temperatureLow
