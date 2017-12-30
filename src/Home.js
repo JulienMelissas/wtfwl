@@ -42,16 +42,19 @@ class Finder extends React.Component {
   }
 }
 
-class SimpleForm extends React.Component {
+class AutocompleteForm extends React.Component {
   constructor (props) {
     super(props)
     this.state = {address: '', latLng: false}
     this.onChange = (address) => this.setState({address})
   }
 
-  handleFormSubmit = (event) => {
+  handleFormSubmission = (event) => {
     event.preventDefault()
+    this.handleLocationSelection()
+  }
 
+  handleLocationSelection = () => {
     geocodeByAddress(this.state.address)
       .then(results => getLatLng(results[0]))
       .then(latLng => this.setState({latLng: latLng}))
@@ -59,20 +62,41 @@ class SimpleForm extends React.Component {
   }
 
   render () {
+    const cssClasses = {
+      root: 'autocomplete-form',
+      input: 'autocomplete-input',
+      autocompleteContainer: 'autocomplete-container',
+    }
+
     const inputProps = {
       value: this.state.address,
       onChange: this.onChange,
       placeholder: 'Somewhere, USA',
+      autoFocus: true,
+      name: 'autocomplete-input',
+      id: 'autocomplete-input',
     }
+
+    const AutocompleteItem = ({ formattedSuggestion }) => (
+      <div className="autocomplete-suggestion">
+        <span className="autocomplete-suggestion--main">{formattedSuggestion.mainText}</span>
+        <small className="autocomplete-suggestion--secondary muted">{formattedSuggestion.secondaryText}</small>
+      </div>
+    )
 
     if (this.state.latLng) {
       return <Redirect to={`/${this.state.latLng.lat}/${this.state.latLng.lng}/`}/>
     }
 
     return (
-      <form onSubmit={this.handleFormSubmit}>
-        <PlacesAutocomplete inputProps={inputProps}/>
-        <button type="submit">Submit</button>
+      <form onSubmit={this.handleFormSubmission}>
+        <PlacesAutocomplete
+          classNames={cssClasses}
+          onSelect={this.handleLocationSelection}
+          inputProps={inputProps}
+          autocompleteItem={AutocompleteItem}
+        />
+        <button type="submit" style={{display: 'none'}}>Find Location</button>
       </form>
     )
   }
@@ -87,7 +111,7 @@ class Search extends React.Component {
     }
     return (
       this.state.showSearch
-        ? <SimpleForm/>
+        ? <AutocompleteForm/>
         : <a onClick={toggleShowSearch}>Fuck you very much,<br/>I'll find myself.</a>
 
     )

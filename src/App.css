@@ -61,6 +61,33 @@ small,
   font-size: 60%;
 }
 
+.muted {
+  color: #555555;
+}
+
+#autocomplete-input{
+  border: none;
+  border-bottom: 5px solid black;
+  max-width: 600px;
+  padding: 0 0 8px;
+  text-overflow: ellipsis;
+}
+#autocomplete-input,
+#autocomplete-input::placeholder {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.autocomplete-container {
+  background: #fff;
+  border: 1px solid #666666;
+}
+.autocomplete-suggestion {
+  color: #000;
+}
+.autocomplete-suggestion--main {
+  font-size: 80%;
+}
+
 /* Styles for Larger Screens */
 @media(min-width: 768px) {
   .wrap {
