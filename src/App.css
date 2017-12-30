@@ -68,6 +68,7 @@ small,
 #autocomplete-input{
   border: none;
   border-bottom: 5px solid black;
+  width: 100%;
   max-width: 600px;
   padding: 0 0 8px;
   text-overflow: ellipsis;
