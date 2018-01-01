@@ -26,7 +26,7 @@ class Finder extends React.Component {
                    getCurrentPosition
                  }) =>
           this.state.latitude && this.state.longitude
-            ? <Redirect to={`/${this.state.latitude}/${this.state.longitude}/`}/>
+            ? <Redirect push to={`/${this.state.latitude}/${this.state.longitude}/`}/>
             : fetchingPosition
             ? <p>Being creepy...</p>
             : this.state.error
@@ -84,7 +84,7 @@ class AutocompleteForm extends React.Component {
     )
 
     if (this.state.latLng) {
-      return <Redirect to={`/${this.state.latLng.lat}/${this.state.latLng.lng}/`}/>
+      return <Redirect push to={`/${this.state.latLng.lat}/${this.state.latLng.lng}/`}/>
     }
 
     return (
@@ -112,7 +112,6 @@ class Search extends React.Component {
       this.state.showSearch
         ? <AutocompleteForm/>
         : <a onClick={toggleShowSearch}>Fuck you very much,<br/>I'll find myself.</a>
-
     )
   }
 }
